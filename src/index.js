@@ -11,6 +11,7 @@ server.use(cors());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use(router);
+server.use("", express.static(process.cwd() + "/src/public/build"));
 
 async function setupApp() {
   try {
@@ -21,5 +22,5 @@ async function setupApp() {
   }
 }
 
-console.log("\x1Bc"); // Clear console
+//console.log("\x1Bc"); // Clear console
 setupApp();

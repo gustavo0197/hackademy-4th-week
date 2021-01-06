@@ -1,0 +1,6 @@
+{
+  "main": "Navigation.tsx",
+  "devDependencies": {
+    "@babel/core": "^7.12.10"
+  }
+}
