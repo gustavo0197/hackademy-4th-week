@@ -11,7 +11,9 @@ export const Contact = () => {
   const { register, errors, handleSubmit } = useForm<IContact>({ resolver: yupResolver(ContactForm) });
   const saveForm = handleSubmit(async (contact: IContact) => {
     setDisableButton(true);
-    const response: any = await axios.post(`${process.env.API_URL}/contact`, { contact });
+    const response: any = await axios.post(`https://rocky-ridge-76697.herokuapp.com/api/contact`, {
+      contact,
+    });
 
     if (response.status == 200) {
       setButtonText("Thanks, I'll send you a message");
