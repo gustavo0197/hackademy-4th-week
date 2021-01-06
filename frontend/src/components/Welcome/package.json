@@ -1,3 +1,6 @@
 {
-  "main": "Welcome.tsx"
+  "main": "Welcome.tsx",
+  "devDependencies": {
+    "@babel/core": "^7.12.10"
+  }
 }

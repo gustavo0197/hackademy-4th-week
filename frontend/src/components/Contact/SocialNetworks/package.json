@@ -1,3 +1,6 @@
 {
-  "main": "SocialNetworks.tsx"
+  "main": "SocialNetworks.tsx",
+  "devDependencies": {
+    "@babel/core": "^7.12.10"
+  }
 }

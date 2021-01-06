@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
+import axios from "axios";
 import { SocialNetworks } from "./SocialNetworks";
 
 export const Contact = () => {
+  const [disableButton, setDisableButton] = useState<boolean>(false);
+  const [buttonText, setButtonText] = useState<string>("Let's have a talk");
   const { register, errors, handleSubmit } = useForm<IContact>({ resolver: yupResolver(ContactForm) });
-  const saveForm = handleSubmit((data: IContact) => {
-    console.log(data);
+  const saveForm = handleSubmit(async (contact: IContact) => {
+    setDisableButton(true);
+    const response: any = await axios.post(`${process.env.API_URL}/contact`, { contact });
+
+    if (response.status == 200) {
+      setButtonText("Thanks, I'll send you a message");
+    } else {
+      setButtonText("Sorry, there was an error");
+      setDisableButton(false);
+    }
   });
 
   const getError = (message?: string) => message && <p className="error-input">{message}</p>;
@@ -22,8 +33,8 @@ export const Contact = () => {
         {getError(errors.email?.message)}
         <textarea name="message" ref={register} cols={30} rows={10} placeholder="Any Message?"></textarea>
         {getError(errors.message?.message)}
-        <button type="submit" onClick={saveForm}>
-          Let's have a talk
+        <button type="submit" onClick={saveForm} disabled={disableButton}>
+          {buttonText}
         </button>
       </form>
       <SocialNetworks />
