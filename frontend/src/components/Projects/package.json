@@ -1,0 +1,6 @@
+{
+  "main": "Projects.tsx",
+  "dependencies": {
+    "assets": "^3.0.1"
+  }
+}

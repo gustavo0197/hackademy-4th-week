@@ -1,0 +1,11 @@
+node_modules
+.vscode
+.dist
+dist
+.build
+build
+build-dev
+.cache
+cache
+build-dev
+.env
