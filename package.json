@@ -1,10 +1,12 @@
 {
   "name": "express-template",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./src/index.js -i ./frontend/* --exec babel-node"
+    "dev": "nodemon ./src/index.js -i ./frontend/* --exec babel-node",
+    "start": "node ./build/index.js",
+    "build": "eval $(rm -r build) && babel src -d ./build --ignore ./src/public --presets=@babel/preset-env"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -16,6 +18,7 @@
     "mongoose": "^5.10.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.11.6",
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.5",
