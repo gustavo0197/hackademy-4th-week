@@ -1,6 +1,0 @@
-{
-  "main": "App.tsx",
-  "devDependencies": {
-    "@babel/core": "^7.12.10"
-  }
-}
