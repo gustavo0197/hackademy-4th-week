@@ -4,17 +4,15 @@
   "main": "build/index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./src/index.js -i ./frontend/* --exec babel-node",
+    "dev": "nodemon ./src/index.js -i ./public/* --exec babel-node",
     "start": "node ./build/index.js",
-    "build": "eval $(rm -r build) && babel src -d ./build --ignore ./src/public --presets=@babel/preset-env"
+    "build": "eval $(rm -r build) && babel src -d ./build --ignore ./public --presets=@babel/preset-env"
   },
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.7",
     "regenerator-runtime": "^0.13.7"
   },

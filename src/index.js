@@ -12,7 +12,7 @@ server.use(cors());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use(router);
-server.use("", express.static(process.cwd() + "/src/public/build"));
+server.use("", express.static(process.cwd() + "/public/build"));
 
 async function setupApp() {
   try {
